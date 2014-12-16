@@ -1,0 +1,7 @@
+[
+   { "caption": "-" },
+   // { "caption": "Add Folder To Project", "command": "add_folder_to_project" },
+   { "caption": "Add Folders To Project", "command": "list_folder_to_add" },
+   { "caption": "Add This Folder To Project", "command": "add_actual_folder_to_project" },
+   { "caption": "-" }
+]
