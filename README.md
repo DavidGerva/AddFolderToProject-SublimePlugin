@@ -30,6 +30,8 @@ ToDo
 ----
 1. Add the settings file to allow the user to choose which menu item to visualize both in the righ-click menu and in the operation panel (Ctrl+Shift+P).
 
+2. Improve this Readme.
+
 
 
 

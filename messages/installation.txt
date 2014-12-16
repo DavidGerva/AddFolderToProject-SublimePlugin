@@ -4,6 +4,6 @@ Add Folder To Project
 With this plugin you can open a file in sublime and easily add the file folder to the project.
 I created it because I often edit files in sublime opening it directly from MS Visual Studio (I created the shortcut Alt+S in VS) or with F4 from TotalCommander and I generally find useful having the directory in the project or copying the file path in the clipboard.
 
-If you have recommendations or opinions just drop me a message or clone on github. ;)
+If you have recommendations or opinions you're always welcome! Just drop me a message or clone on github. ;)
 Thank you!
 David (davidgerva@gmail.com)
