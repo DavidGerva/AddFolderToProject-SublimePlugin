@@ -1,8 +1,11 @@
 Add Folder To Project
 =====================
 
-With this plugin you can open a file in sublime and easily add the file folder to the project.
-I created it because I often edit files in sublime opening it directly from MS Visual Studio (I created the shortcut Alt+S in VS) or with F4 from TotalCommander and I generally find useful having the directory in the project or copying the file path in the clipboard.
+With this plugin you can **open a file in sublime and easily add the file folder to the project**, **add a generic folder (asked by a prompt dialog) to the project** and you can also **copy into the clipboard the path of the file** you're editing **or the path of the file's directory**.
+
+You can also create a new project starting from the opened file in sublime.
+
+I created this plugin because I often edit files in sublime opening it directly from MS Visual Studio (I created the shortcut Alt+S in VS) or with F4 from TotalCommander and I generally find useful having the directory in the project or copying the file path in the clipboard.
 
 Usage
 -----
@@ -30,13 +33,15 @@ ToDo
 ----
 1. Add the settings file to allow the user to choose which menu item to visualize both in the righ-click menu and in the operation panel (Ctrl+Shift+P).
 
-2. Improve this Readme.
-
-
-
-
 ChangeLog
 =========
+AddFolder - 1.1.0
+---------------
+- Fixed menu item visibility with file without a phisical path
+- If there is no phisical paths now the plugin asks for a custom path
+- If a directory already exists in the project it won't be shown in the list dialog
+- If the file's directory already exists in the project in the left click menu you'll now see not the "add this folder to project" but a new more useful "remove this folder from poject". Quite self-explaining, I think.
+- Now you can create a blank new project starting from the opened file with the command (in the Ctrl+Shift+P Menu) "Create Project from File". This command will open a new sublime window with a new project containing only the file's directory. *I can't try it under OsX* so I just copied two lines of code from another project (thanks to the SideBarEnhancements sublime plugin). *OsX Users: can you please tell me if it works?!*. This will be really appreciated.
 
 AddFolder - 1.0.0
 ---------------

@@ -1,7 +1,11 @@
 [
+
    { "caption": "Add Folders To Project", "command": "list_folder_to_add" },
+   { "caption": "Remove This Folder From Project", "command": "remove_actual_folder_from_project" },
    { "caption": "Add This Folder To Project", "command": "add_actual_folder_to_project" },
+   { "caption": "Create Project From File", "command": "create_project_from_file" },
    { "caption": "Copy File Path", "command": "copy_file_path" },
    { "caption": "Copy Dir Path", "command": "copy_dir_path" }
+
 
 ]
