@@ -1,8 +1,6 @@
 Add Folder To Project
 =====================
 
-**NOTE 30.01.2015: I recently noticed that the plugin doesn't work if there isn't already a project in the current sublime session. From this condition you can just use the command "Create new project from file". I'll fix it ASAP. Thank you!** "
-
 With this plugin you can **open a file in sublime and easily add the file folder to the project**, **add a generic folder (asked by a prompt dialog) to the project** and you can also **copy into the clipboard the path of the file** you're editing **or the path of the file's directory**.
 
 You can also create a new project starting from the opened file in sublime.
@@ -37,6 +35,10 @@ ToDo
 
 ChangeLog
 =========
+AddFolder - 1.1.1
+---------------
+- Corrected behavior with no project already opened.
+
 AddFolder - 1.1.0
 ---------------
 - Fixed menu item visibility with file without a phisical path

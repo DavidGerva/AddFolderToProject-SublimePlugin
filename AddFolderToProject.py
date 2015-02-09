@@ -5,17 +5,26 @@ folderList = []
 
 class AddFolder():
 
-   def add(dirPath):
-      d = mySelf.window.project_data()
+   def add(self, dirPath):
+      d = self.window.project_data()
+
+      # if no project present
+      if not d: 
+         d = {'folders': [{'follow_symlinks': True, 'path': dirPath}] }
+         self.window.set_project_data(d)
+         return 
+
       d['folders'].append({'path': dirPath, 'follow_symlinks': True})
-      mySelf.window.set_project_data(d)
+      self.window.set_project_data(d)         
 
    def exists(self, dirPath):
       d = self.window.project_data()
 
-      for folder in d['folders']:
-         if os.path.samefile( dirPath, folder['path']):
-            return True
+      if d :
+         for folder in d['folders']:
+            if (folder['path']):
+               if os.path.samefile( dirPath, folder['path']):
+                  return True
 
       return False
 
@@ -24,11 +33,12 @@ class AddFolder():
 
       nI = 0
       for folder in d['folders']:
-         if os.path.samefile( dirPath, folder['path']):
-            del (d['folders'][nI])
-            self.window.set_project_data(d)
-            return True
-         nI = nI + 1;
+         if (folder['path']):
+            if os.path.samefile( dirPath, folder['path']):
+               del (d['folders'][nI])
+               self.window.set_project_data(d)
+               return True
+            nI = nI + 1;
 
 class AddCustomFolderToProject( sublime_plugin.WindowCommand ):
 
@@ -42,7 +52,11 @@ class AddCustomFolderToProject( sublime_plugin.WindowCommand ):
 
       global mySelf
       mySelf = self
-      self.window.show_input_panel("Add Folder:", dirName, AddFolder.add, None, None) # onDone, onChange, onCancel
+      self.window.show_input_panel("Add Folder:", dirName, AddCustomFolderToProject.on_done, None, None) # onDone, onChange, onCancel
+
+   def on_done(result):
+      AddFolder.add(mySelf, result)
+
         
 # Command "Add This Folder To Project"
 class AddActualFolderToProject( sublime_plugin.WindowCommand ):
@@ -53,7 +67,7 @@ class AddActualFolderToProject( sublime_plugin.WindowCommand ):
       if (dirName):
          global mySelf
          mySelf = self
-         AddFolder.add(dirName)
+         AddFolder.add(self, dirName)
 
    def is_visible(self):
       filePath = self.window.active_view().file_name();
@@ -119,7 +133,7 @@ class ListFolderToAdd( sublime_plugin.WindowCommand ):
          dirPath = folderList[nIndex]
          global mySelf
          mySelf = self
-         AddFolder.add(dirPath)
+         AddFolder.add(self, dirPath)
       
       del folderList[:]
 
@@ -158,5 +172,4 @@ class CreateProjectFromFile(sublime_plugin.WindowCommand):
       items.append(dirName)
       items.append(filePath)
 
-      print (items)
       p = subprocess.Popen(items)
